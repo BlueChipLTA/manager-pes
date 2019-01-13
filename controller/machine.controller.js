@@ -23,9 +23,8 @@ exports.addMachine = async function(req, res) {
       rows.forEach(function(row) { 
         notification.sendNotificationToClient(row.token,'AddMachine',name);
        });
-      const { rows } = await db.query(contant.stringSQL.getIdNewMachine);
-      
-      return res.status(HTTPStatus.CREATED).json(rows[0]);
+     
+      return res.status(HTTPStatus.CREATED).json(contant.message);
     } catch (e) {
     console.log(e);
       return res.status(HTTPStatus.BAD_REQUEST).json(e);
